@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink, Outlet, useParams } from "react-router-dom";
+import { NavLink, Outlet, useLocation, useParams } from "react-router-dom";
 import { getMovieById } from "services/Api";
 
 const POSTER_CONFIG = {
@@ -9,6 +9,9 @@ const POSTER_CONFIG = {
 
 const MovieDetails = () => {
     const { movieId } = useParams();
+    
+    const location = useLocation();
+    console.log('location: ', location);
 
     const [movie, setMovie] = useState(null);
     
@@ -34,7 +37,7 @@ const MovieDetails = () => {
 
     return (
         <>
-            <NavLink>Go back</NavLink>
+            <NavLink to={location.state.from}>Go back</NavLink>
             <div style={{display: 'flex'}}>
                 <img src={moviePoster} alt="" />
                 <div>

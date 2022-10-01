@@ -1,36 +1,42 @@
 import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 // 
 import MoviesList from "components/MoviesList";
 import SearchBar from "components/SearchBar";
 // 
-import { getSearchMovie } from "services/Api";
+import { getMovieByQuery } from "services/Api";
 
 const Movies = () => {
     const [movies, setMovies] = useState([]);
-    const [searchParams, setSearchParams] = useSearchParams();
 
-    useEffect(() => {
-        const queryParams = searchParams.get('query');
-        
-        if (queryParams !== "") {
-            getSearchMovie(queryParams)
-                .then(({ results }) => setMovies(results))
-                .catch(console.log);
-        };
-    }, [searchParams])
+    const [searchParams, setSearchParams] = useSearchParams();
+    const queryParams = searchParams.get('query') ?? "";
     
-    const updateQuery = query => {
+    const [query, setQuery] = useState(queryParams);
+
+    const location = useLocation();
+    console.log('location: ', location);
+
+    const updateQueryParams = query => {
         const newSearchParams = !query ? {} : { query };
         setSearchParams(newSearchParams);
     };
 
+    useEffect(() => {   
+        if (query) {
+            getMovieByQuery(query)
+                .then(({ results }) => setMovies(results))
+                .catch(console.log);
+        };
+    }, [query]);
+    
+
     return (
         <>
-            <SearchBar onSubmit={updateQuery} />
+            <SearchBar query={queryParams} onChange={updateQueryParams} onSubmit={setQuery} />
 
             {!!movies.length &&
-                <MoviesList movies={movies} />}
+                <MoviesList movies={movies} location={location} />}
         </>
     );
 };

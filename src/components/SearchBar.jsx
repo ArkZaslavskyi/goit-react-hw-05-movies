@@ -1,10 +1,11 @@
-const SearchBar = ({ onSubmit }) => {
+const SearchBar = ({ query, onChange, onSubmit }) => {
+
     const handleSubmit = e => {
         e.preventDefault();
 
-        // console.log(e.target.query.value);
-        onSubmit(e.target.query.value);
-        // e.target.reset();
+        const normalizeValue = e.target.query.value.trim();
+        onChange(normalizeValue);
+        onSubmit(normalizeValue);
     };
 
     return (
@@ -12,9 +13,11 @@ const SearchBar = ({ onSubmit }) => {
             <form onSubmit={handleSubmit}>
                 <input type="text"
                     name="query"
+                    value={query}
                     autoComplete="off"
                     autoFocus
                     placeholder="Search movie..."
+                    onChange={e => onChange(e.target.value)}
                 />
                 <button type="submit">Search</button>
             </form>

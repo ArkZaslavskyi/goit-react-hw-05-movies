@@ -35,7 +35,7 @@ export const getMovieById = id => {
     return getMovies({ queryType: '/movie', pathParams });
 };
 
-export const getSearchMovie = query => {
+export const getMovieByQuery = query => {
     const pathParams = `/movie`;
 
     return getMovies({ queryType: '/search', pathParams, query });

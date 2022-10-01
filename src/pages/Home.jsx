@@ -1,9 +1,15 @@
-import MoviesList from "components/MoviesList";
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+// 
+import MoviesList from "components/MoviesList";
+// 
 import { getTrends } from "services/Api";
 
 const Home = () => {
     const [movies, setMovies] = useState([]);
+
+    const location = useLocation();
+    console.log('location: ', location);
 
     useEffect(() => {
         getTrends().then(({ results }) => setMovies(results));
@@ -19,7 +25,7 @@ const Home = () => {
 
     return (
         <>
-            <MoviesList movies={movies} />
+            <MoviesList movies={movies} location={location} />
         </>
     );
 };
