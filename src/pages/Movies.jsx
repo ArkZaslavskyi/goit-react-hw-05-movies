@@ -11,8 +11,8 @@ const Movies = () => {
 
     const [searchParams, setSearchParams] = useSearchParams();
     const queryParams = searchParams.get('query') ?? "";
-    
-    const [query, setQuery] = useState(queryParams);
+
+    const [query, setQuery] = useState(() => queryParams);
 
     const location = useLocation();
     console.log('location: ', location);
