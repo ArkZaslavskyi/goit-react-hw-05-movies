@@ -7,18 +7,23 @@ import Reviews from "./Reviews";
 import Movies from "pages/Movies";
 import Home from "pages/Home";
 
-import { getApiConfig } from "services/Api";
-import { GlobalStyle } from "./GlobalStyle";
 import Navigation from "./Navigation";
+
+import { GlobalStyle } from "./GlobalStyle";
+import styled from "styled-components";
 
 // const Link = styled(NavLink)`
 // `;
 
-getApiConfig();
+const Body = styled.div`
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+`;
 
 const App = () => {
   return (
-    <>
+    <Body>
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -30,7 +35,7 @@ const App = () => {
       </Routes>
 
       <GlobalStyle />
-    </>
+    </Body>
   );
 };
 

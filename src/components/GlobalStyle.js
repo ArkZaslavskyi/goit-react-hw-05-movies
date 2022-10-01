@@ -22,4 +22,14 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         list-style: none;
     }
+    img {
+        display: block;
+        max-width: 100%;
+        /* height: auto; */
+        height: 100%;
+    }
+    main {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
 `;

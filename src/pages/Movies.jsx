@@ -13,9 +13,7 @@ const Movies = () => {
     const queryParams = searchParams.get('query') ?? "";
 
     const [query, setQuery] = useState(() => queryParams);
-
     const location = useLocation();
-    console.log('location: ', location);
 
     const updateQueryParams = query => {
         const newSearchParams = !query ? {} : { query };
@@ -32,12 +30,12 @@ const Movies = () => {
     
 
     return (
-        <>
+        <main>
             <SearchBar query={queryParams} onChange={updateQueryParams} onSubmit={setQuery} />
 
             {!!movies.length &&
                 <MoviesList movies={movies} location={location} />}
-        </>
+        </main>
     );
 };
 

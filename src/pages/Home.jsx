@@ -7,9 +7,7 @@ import { getTrends } from "services/Api";
 
 const Home = () => {
     const [movies, setMovies] = useState([]);
-
     const location = useLocation();
-    console.log('location: ', location);
 
     useEffect(() => {
         getTrends().then(({ results }) => setMovies(results));
@@ -24,9 +22,9 @@ const Home = () => {
     };
 
     return (
-        <>
+        <main>
             <MoviesList movies={movies} location={location} />
-        </>
+        </main>
     );
 };
 

@@ -33,7 +33,7 @@ const MovieDetails = () => {
     const movieGenresList = genres.map(({ name }) => name).join(' ');
 
     return (
-        <>
+        <main>
             <NavLink to={location.state.from}>Go back</NavLink>
 
             <div style={{display: 'flex'}}>
@@ -56,7 +56,7 @@ const MovieDetails = () => {
             </div>
 
             <Outlet />
-        </>
+        </main>
     );
 };
 

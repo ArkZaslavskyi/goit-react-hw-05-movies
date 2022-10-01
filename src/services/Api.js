@@ -20,40 +20,48 @@ const getMovies = async ({ queryType, pathParams, query }) => {
     return data;
 };
 
-export const getApiConfig = () => {
-    const pathParams = '';
-
-    return getMovies({ queryType: '/configuration', pathParams });
-};
-
 export const getTrends = () => {
+    const queryType = '/trending';
+
     const mediaType = 'movie';
     const timeWindow = 'week';
 
     const pathParams = '/'.concat(mediaType, '/', timeWindow);
 
-    return getMovies({ queryType: '/trending', pathParams });
+    return getMovies({ queryType, pathParams });
 };
 
 export const getMovieById = id => {
+    const queryType = '/movie';
     const pathParams = `/${id}`;
 
-    return getMovies({ queryType: '/movie', pathParams });
+    return getMovies({ queryType, pathParams });
 };
 
 export const getMovieByQuery = query => {
+    const queryType = '/search';
     const pathParams = `/movie`;
 
-    return getMovies({ queryType: '/search', pathParams, query });
+    return getMovies({ queryType, pathParams, query });
 
 };
 
 export const getMovieCreditsById = id => {
+    const queryType = '/movie';
     const pathParams = `/${id}/credits`;
-    return getMovies({ queryType: '/movie', pathParams });
+
+    return getMovies({ queryType, pathParams });
 };
 
 export const getMovieReviewsById = id => {
+    const queryType = '/movie';
     const pathParams = `/${id}/reviews`;
-    return getMovies({ queryType: '/movie', pathParams });
+
+    return getMovies({ queryType, pathParams });
+};
+
+export const getApiConfig = () => {
+    const pathParams = '';
+
+    return getMovies({ queryType: '/configuration', pathParams });
 };
