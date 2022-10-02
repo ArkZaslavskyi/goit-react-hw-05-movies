@@ -6,7 +6,6 @@ export const POSTER_CONFIG = {
     posterSizes: ["w92", "w154", "w185", "w342", "w500", "w780", "original"],
 };
 
-
 const getMovies = async ({ queryType, pathParams, query }) => {
     const config = {
         baseURL: 'https://api.themoviedb.org/3', 

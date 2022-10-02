@@ -28,7 +28,6 @@ const Movies = () => {
         };
     }, [query]);
     
-
     return (
         <main>
             <SearchBar

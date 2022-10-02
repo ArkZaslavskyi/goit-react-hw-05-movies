@@ -11,9 +11,7 @@ const Cast = () => {
         getMovieCreditsById(movieId).then(data => setCast(data.cast));
     }, [movieId]);
 
-    if (!cast) {
-        return ;
-    };
+    if (!cast) { return; };
 
     return (
         <>

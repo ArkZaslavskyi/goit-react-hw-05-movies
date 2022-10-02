@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Outlet, useLocation, useParams } from "react-router-dom";
 import { BsArrowLeft } from 'react-icons/bs';
 import MovieDetailsBasic from "components/MovieDetailsBasic";
@@ -31,7 +31,9 @@ const MovieDetails = () => {
                 </Nav>
             </AddInfoWrapper>
 
-            <Outlet />
+            <Suspense fallback={<h1>Loading...</h1>}>
+                <Outlet />
+            </Suspense>
         </main>
     );
 };

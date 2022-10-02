@@ -1,7 +1,7 @@
+import MovieCard from "components/MovieCard";
 import { POSTER_CONFIG } from "services/Api";
-import { List, Item } from "./MoviesList.styled";
-import MovieCard from "./MovieCard/MovieCard";
 import defaultImage from 'default-movie-768x1129.jpg';
+import { List, Item } from "./MoviesList.styled";
 
 // const POSTER_CONFIG = {
 //     baseUrl: "http://image.tmdb.org/t/p/",
@@ -24,7 +24,7 @@ const MoviesList = ({ movies, location }) => {
                             movieLink={`/movies/${id}`}
                             stateLink={{ from: location }}
                             image={moviePoster}
-                            isPoster={!poster}
+                            isNotPoster={!poster}
                             title={title}
                         />
                     </Item>

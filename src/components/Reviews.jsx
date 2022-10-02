@@ -11,9 +11,7 @@ const Reviews = () => {
         getMovieReviewsById(movieId).then(data => setReviews(data.results));
     }, [movieId]);
 
-    if (!reviews || !reviews.length) {
-        return;
-    }
+    if (!reviews || !reviews.length) { return; };
 
     return (
         <>

@@ -16,7 +16,7 @@ const MovieDetailsBasic = ({ movie }) => {
     release_date: date,
     vote_average: vote,
     overview,
-    genres
+    genres,
   } = movie;
 
   const moviePoster = poster
@@ -32,25 +32,28 @@ const MovieDetailsBasic = ({ movie }) => {
 
   return (
     <InfoWrapper>
-        <Img src={moviePoster} alt="" />
-        <MovieInfo>
-            <Title>{movieTitle}</Title>
-            <Text>User Score: {movieScore}</Text>
-            {overview &&
-                (<>
-                    <SubTitle>Overview</SubTitle>
-                    <Text>{overview}</Text>
-                </>)}
+      <Img src={moviePoster} alt="" />
+      <MovieInfo>
+        <Title>{movieTitle}</Title>
+        <Text>User Score: {movieScore}</Text>
+        {overview &&
+          (<>
+            <SubTitle>Overview</SubTitle>
+            <Text>{overview}</Text>
+          </>)}
+        {!!genres.length &&
+          (<>
             <SubTitle>Genres</SubTitle>
             <Text>{movieGenresList}</Text>
-        </MovieInfo>
+          </>)}
+      </MovieInfo>
     </InfoWrapper>
   );
 };
 
 MovieDetailsBasic.propTypes = {
   movie: PropTypes.shape({
-    poster_path: PropTypes.string.isRequired,
+    poster_path: PropTypes.string,
     title: PropTypes.string.isRequired,
     release_date: PropTypes.string.isRequired,
     vote_average: PropTypes.number.isRequired,
