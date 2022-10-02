@@ -33,14 +33,29 @@ const Link = styled(NavLink)`
 const MoviesList = ({ movies, location }) => {
     return (
         <List>
-            {movies.map(({ id, poster_path: poster }) => {
+            {movies.map(({ id, poster_path: poster, title }) => {
                 const moviePoster = POSTER_CONFIG.baseUrl.concat(POSTER_CONFIG.posterSizes[2], poster);
                 return (
                     <Item key={id}
                     >
                         <Link to={`/movies/${id}`} state={{ from: location }}
                         >
-                            <img src={moviePoster} alt="" />
+                            {poster
+                                ? <img src={moviePoster} alt="" />
+                                :
+                                <div style={{
+                                    width: '185px',
+                                    height: '100%',
+                                    backgroundColor: '#cccccc',
+                                    display: 'inline-flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    fontWeight: '500',
+                                    padding: '16px'
+                                }}>
+                                    <p>{title}</p>
+                                </div>
+                            }
                         </Link>
                     </Item>
                 );

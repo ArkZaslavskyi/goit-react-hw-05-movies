@@ -38,7 +38,7 @@ const MovieInfo = styled.div`
     padding-left: 8px;
 `;
 const Title = styled.h2`
-
+color: blueviolet;
 `;
 
 const SubTitle = styled.h3`
@@ -64,7 +64,7 @@ const Link = styled(NavLink)`
     text-decoration: none;
 
     &.active {
-        background-color: lightgray;
+        background-color: #dddddd;
     }
     :hover:not(.active),
     :focus-visible:not(.active) {
@@ -114,7 +114,7 @@ const MovieDetails = () => {
             </div>
 
             <div>
-                <Text>Additional information</Text>
+                <SubTitle>Additional information</SubTitle>
                 <Nav>
                     <Link to="cast" state={{ from: location.state.from }}>Cast</Link>
                     <Link to="reviews" state={{ from: location.state.from }}>Reviews</Link>
