@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+export const List = styled.ul`
+    padding-top: 16px;
+    margin-top: 8px;
+    
+    border-top: 1px solid #cccccc;
+`;
+
 export const Review = styled.li`
     :not(:first-of-type) {
         margin-top: 16px;

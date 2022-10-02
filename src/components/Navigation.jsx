@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { Box } from "./Box";
 
 const Header = styled.header`
     /* position: fixed; */
@@ -33,10 +34,12 @@ const Link = styled(NavLink)`
 const Navigation = () => {
     return (
         <Header>
-            <Nav>
-                <Link to='/' end>Home</Link>
-                <Link to='/movies'>Movies</Link>
-            </Nav>
+            <Box width={900} paddingLeft={16} paddingRight={16}>
+                <Nav>
+                    <Link to='/' end>Home</Link>
+                    <Link to='/movies'>Movies</Link>
+                </Nav>
+            </Box>
         </Header>
     );
 };

@@ -8,23 +8,16 @@ import Movies from "pages/Movies";
 import Home from "pages/Home";
 
 import Navigation from "./Navigation";
-
+import { Box } from "./Box";
 import { GlobalStyle } from "./GlobalStyle";
-import styled from "styled-components";
-
 // const Link = styled(NavLink)`
 // `;
 
-const Body = styled.div`
-  height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr;
-`;
-
 const App = () => {
   return (
-    <Body>
+    <Box maxWidth={1200} paddingLeft={16} paddingRight={16} margin="0 auto" >
       <Navigation />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movies /> } />
@@ -35,7 +28,7 @@ const App = () => {
       </Routes>
 
       <GlobalStyle />
-    </Body>
+    </Box>
   );
 };
 

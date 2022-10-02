@@ -5,6 +5,11 @@ export const List = styled.ul`
     grid-template-columns: repeat(auto-fit, 185px);
     gap: 16px;
     justify-content: center;
+
+    padding-top: 16px;
+    margin-top: 8px;
+
+    border-top: 1px solid #cccccc;
 `;
 
 export const Title = styled.h4`
@@ -21,8 +26,6 @@ export const Img = styled.img`
     height: 200px;
 `;
 
-export const Patch = styled.div`
-    width: 133px;
-    height: 200px;
+export const Patch = styled(Img)`
     background-color: #cccccc;
 `;

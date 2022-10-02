@@ -14,11 +14,7 @@ const Home = () => {
     }, [])
     
     if (!movies.length) {
-        return (
-            <>
-                <h1>Home page</h1>
-            </>
-        );
+        return ;
     };
 
     return (

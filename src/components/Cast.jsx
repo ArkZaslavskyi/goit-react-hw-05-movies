@@ -12,12 +12,8 @@ const Cast = () => {
     }, [movieId]);
 
     if (!cast) {
-        return (
-        <>
-            <h2>Cast</h2>
-        </>
-        );
-    }
+        return ;
+    };
 
     return (
         <>

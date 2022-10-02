@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Author, AuthorTitle, Text, Review } from './ReviewsList.styled';
+import { List, Author, AuthorTitle, Text, Review } from './ReviewsList.styled';
 
 // const POSTER_CONFIG = {
 //     baseUrl: "http://image.tmdb.org/t/p/",
@@ -8,22 +8,23 @@ import { Author, AuthorTitle, Text, Review } from './ReviewsList.styled';
 
 const ReviewsList = ({ reviews }) => {
     return (
-        <ul>
+        <List>
             {
                 reviews.map(({ id, author, content }) => {
                     return (
                         <Review key={id}>
-                            <Author><AuthorTitle>Author: </AuthorTitle>{author}</Author>
+                            <Author>
+                                <AuthorTitle>Author: </AuthorTitle>{author}
+                            </Author>
                             <Text>{content}</Text>
                         </Review>
                 )})
             }
-        </ul>
+        </List>
     );
 };
 
-
-ReviewsList.propType = {
+ReviewsList.propTypes = {
     reviews: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired,
         author: PropTypes.string.isRequired,
