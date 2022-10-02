@@ -1,6 +1,6 @@
 import { PropTypes } from 'prop-types';
 import { POSTER_CONFIG } from "services/Api";
-import { List, Title, SubTitle, Img, Patch } from './CastList.styled';
+import { List, Title, SubTitle, Img } from './CastList.styled';
 import defaultImage from 'default-movie-768x1129.jpg';
 
 // const POSTER_CONFIG = {
@@ -12,14 +12,14 @@ const CastList = ({ cast }) => {
     return (
         <List>
             {cast.map(({ id, profile_path: posterPath, name, character }) => {
-                const castPoster = POSTER_CONFIG.baseUrl.concat(POSTER_CONFIG.posterSizes[0], posterPath);
+                const castPoster = posterPath
+                    ? POSTER_CONFIG.baseUrl.concat(POSTER_CONFIG.posterSizes[0], posterPath)
+                    : defaultImage;
 
                 return (
                     <li key={id}>
                         <Title>{name}</Title>
-                        {posterPath
-                            ? <Img src={castPoster} alt="" />
-                            : <Patch src={defaultImage} alt="" />}
+                        <Img src={castPoster} alt="" />
                         <SubTitle>{character}</SubTitle>
                     </li>
                 );

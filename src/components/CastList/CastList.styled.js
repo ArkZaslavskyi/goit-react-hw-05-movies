@@ -25,7 +25,3 @@ export const Img = styled.img`
     width: 133px;
     height: 200px;
 `;
-
-export const Patch = styled(Img)`
-    background-color: #cccccc;
-`;

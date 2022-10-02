@@ -1,5 +1,5 @@
-import { Link, CardWrapper } from "./MovieCard.styled"
 import { PropTypes } from "prop-types";
+import { Link, CardWrapper } from "./MovieCard.styled"
 
 const MovieCard = ({ movieLink, stateLink, image, isNotPoster, title }) => {
   return (
