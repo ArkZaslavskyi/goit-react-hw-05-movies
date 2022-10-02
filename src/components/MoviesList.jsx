@@ -22,7 +22,7 @@ const Item = styled.li`
 
     :hover {
         transform: scale(1.025);
-    }
+    };
 `;
 
 const Link = styled(NavLink)`
@@ -33,18 +33,18 @@ const Link = styled(NavLink)`
 const MoviesList = ({ movies, location }) => {
     return (
         <List>
-        {movies.map(({ id, poster_path: poster }) => {
-            const moviePoster = POSTER_CONFIG.baseUrl.concat(POSTER_CONFIG.posterSizes[2], poster);
-            return (
-                <Item key={id}
-                >
-                    <Link to={`/movies/${id}`} state={{ from: location }}
+            {movies.map(({ id, poster_path: poster }) => {
+                const moviePoster = POSTER_CONFIG.baseUrl.concat(POSTER_CONFIG.posterSizes[2], poster);
+                return (
+                    <Item key={id}
                     >
-                        <img src={moviePoster} alt="" />
-                    </Link>
-                </Item>
-            );
-        })}
+                        <Link to={`/movies/${id}`} state={{ from: location }}
+                        >
+                            <img src={moviePoster} alt="" />
+                        </Link>
+                    </Item>
+                );
+            })}
         </List>
     );
 };

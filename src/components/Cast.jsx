@@ -33,7 +33,7 @@ const Cast = () => {
 
                         return (<li key={id}>
                             <h3>{name}</h3>
-                            <img src={castPoster} alt="" />
+                            {posterPath && <img src={castPoster} alt="" />}
                             <h3>{character}</h3>
                         </li>
                     )})

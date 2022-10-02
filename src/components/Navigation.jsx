@@ -16,7 +16,7 @@ const Nav = styled.nav`
 
 const Link = styled(NavLink)`
     padding: ${p => p.theme.spaces[3]}px;
-    border-radius: 2px;
+    border-radius: 4px;
     font-weight: ${p => p.theme.fontWeights.medium};
     color: navy;
     text-decoration: none;

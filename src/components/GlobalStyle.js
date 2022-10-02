@@ -31,5 +31,6 @@ export const GlobalStyle = createGlobalStyle`
     main {
         padding-left: 8px;
         padding-right: 8px;
+        padding-bottom: 16px;
     }
 `;

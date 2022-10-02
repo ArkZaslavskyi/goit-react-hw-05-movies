@@ -3,7 +3,7 @@ import { ImSearch } from 'react-icons/im';
 
 const SearchForm = styled.form`
     display: flex;
-    gap: 4px;
+    /* gap: 4px; */
     padding: 8px;
     margin-bottom: 16px;
 `;
@@ -12,14 +12,18 @@ const Input = styled.input`
     padding: 8px 8px;
     outline: none;
     border: 1px solid navy;
-    border-radius: 4px;
+    border-left: none;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
 `;
 const Button = styled.button`
     display: block;
     padding: 8px 12px;
     color: navy;
     border: 1px solid navy;
-    border-radius: 4px;
+    border-right: none;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
     outline: none;
 `;
 
