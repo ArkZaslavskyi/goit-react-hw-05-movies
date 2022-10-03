@@ -27,7 +27,7 @@ const MovieDetailsBasic = ({ movie }) => {
   const movieTitle = `${title} (${new Date(date).getFullYear()})`;
   const movieScore = `${Math.round(vote * 10)}%`;
   const movieGenresList = genres.map(
-      ({ name }) => name).join(' ');
+      ({ name }) => name).join(', ');
 
 
   return (
