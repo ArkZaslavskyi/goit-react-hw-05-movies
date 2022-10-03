@@ -9,7 +9,7 @@ export const List = styled.ul`
 
 export const Review = styled.li`
     :not(:first-of-type) {
-        margin-top: 16px;
+        margin-top: 24px;
     };
 `;
 
@@ -21,5 +21,7 @@ export const AuthorTitle = styled.span`
 `;
 
 export const Text = styled.p`
-    margin-top: 8px;
+    margin-top: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
 `;
