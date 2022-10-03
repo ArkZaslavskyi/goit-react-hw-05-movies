@@ -4,6 +4,7 @@ import { BsArrowLeft } from 'react-icons/bs';
 import MovieDetailsBasic from "components/MovieDetailsBasic";
 import { getMovieById } from "services/Api";
 import { BackLink, AddInfoWrapper, SubTitle, Nav, Link } from "./MovieDetails.styled";
+import { ProgressBar } from  'react-loader-spinner'
 
 const MovieDetails = () => {
     const [movie, setMovie] = useState(null);
@@ -15,7 +16,19 @@ const MovieDetails = () => {
         getMovieById(movieId).then(data => setMovie(data));
     }, [movieId]);
     
-    if (!movie) { return; };
+    if (!movie) {
+        return (
+            <ProgressBar
+                height="80"
+                width="80"
+                ariaLabel="progress-bar-loading"
+                wrapperStyle={{}}
+                wrapperClass="progress-bar-wrapper"
+                borderColor='navy'
+                barColor='orangered'
+            />
+        );
+    };
 
     return (
         <main>
@@ -31,7 +44,17 @@ const MovieDetails = () => {
                 </Nav>
             </AddInfoWrapper>
 
-            <Suspense fallback={<h1>Loading...</h1>}>
+            <Suspense fallback={
+                <ProgressBar
+                    height="80"
+                    width="80"
+                    ariaLabel="progress-bar-loading"
+                    wrapperStyle={{}}
+                    wrapperClass="progress-bar-wrapper"
+                    borderColor='navy'
+                    barColor='orangered'
+                />
+            }>
                 <Outlet />
             </Suspense>
         </main>

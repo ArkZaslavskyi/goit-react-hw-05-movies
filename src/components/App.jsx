@@ -4,6 +4,7 @@ import Navigation from "components/Navigation";
 import { Box } from "./Box";
 import { GlobalStyle } from "./GlobalStyle";
 import { lazy, Suspense } from "react";
+import { ProgressBar } from 'react-loader-spinner';
 
 const Home = lazy(() => import("pages/Home"));
 const Movies = lazy(() => import("pages/Movies"));
@@ -16,7 +17,17 @@ const App = () => {
     <Box maxWidth={1200} paddingLeft={16} paddingRight={16} margin="0 auto" >
       <Navigation />
 
-      <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={
+        <ProgressBar
+            height="80"
+            width="80"
+            ariaLabel="progress-bar-loading"
+            wrapperStyle={{}}
+            wrapperClass="progress-bar-wrapper"
+            borderColor='navy'
+            barColor='orangered'
+        />
+      }>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movies" element={<Movies /> } />
