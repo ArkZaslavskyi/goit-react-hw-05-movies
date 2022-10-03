@@ -26,8 +26,17 @@ const Cast = () => {
         );
     };
 
+    if (!cast.length) {
+        return (
+            <>
+                <h3>Oop's! We don't have any <span style={{color: 'blueviolet'}}>cast</span> for this movie</h3>
+            </>
+        );
+    };
+
     return (
         <>
+            
             <CastList cast={cast} />
         </>
     );

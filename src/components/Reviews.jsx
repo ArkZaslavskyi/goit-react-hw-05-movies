@@ -26,7 +26,13 @@ const Reviews = () => {
         );
     }
 
-    if (!reviews.length) { return; };
+    if (!reviews.length) {
+        return (
+            <>
+                <h3>Oop's! We don't have any <span style={{color: 'blueviolet'}}>reviews</span> for this movie</h3>
+            </>
+        );
+    };
 
     return (
         <>

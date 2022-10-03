@@ -19,6 +19,7 @@ const Home = () => {
 
     return (
         <main>
+            <h1 style={{paddingBottom: '16px'}}>Tranding today</h1>
             <MoviesList movies={movies} location={location} />
         </main>
     );
